@@ -46,7 +46,7 @@ def rlsa(image: numpy.ndarray, horizontal: bool = True, vertical: bool = True, v
             print('Image must be an numpy ndarray and must be in "binary". Use Opencv/PIL to convert the image to binary.\n')
             print("import cv2;\nimage=cv2.imread('path_of_the_image');\ngray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY);\n\
                 (thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)\n")
-            print("method usage -- rlsa.rlsa(image_binary, True, False, 10)")
+            print("method usage --from pythonRLSA import rlsa;\nrlsa.rlsa(image_binary, True, False, 10)")
     else:
         print('Image must be an numpy ndarray and must be in binary')
         image = None

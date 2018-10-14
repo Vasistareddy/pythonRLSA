@@ -6,18 +6,16 @@
 # Install requirements
 
 	- pip install -r requirements.txt
-	- if python.__version__ < 3.5: pip install typing
-Read the typing docs [here](https://pypi.org/project/typing/) because typings are included in the code.
 
 # Install
 
 	- pip install pythonRLSA
 
 # Input & Output
-	- output of 3 cases with value "10" can be seen at the below path
-	- pythonRLSA/test_images/image1.png
-	- https://github.com/Vasistareddy/python-rlsa/blob/master/pythonRLSA/test_images/image1.png
-	- More results can be seen at that path "pythonRLSA/test_images"
+
+[Output of 3 cases with value "10" can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images/image1.png)
+
+More results can be seen [here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
 
 # How it works
 
@@ -47,7 +45,6 @@ Read the typing docs [here](https://pypi.org/project/typing/) because typings ar
 Ran 6 tests in 0.003s
 
 OK
-
 
 # Prerequisites
 	
