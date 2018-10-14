@@ -78,7 +78,7 @@ OK
 
 Please ensure that you have updated pip to the latest version before installing pythonRLSA.
 
-If you find any bugs/errors in the usage of above code, please raise an issue through [Github](https://github.com/Vasistareddy/python-rlsa) or send an email to vasista.1245@gmail.com with a clear example that can reproduce the issue.
+If you find any bugs/errors in the usage of above code, please raise an issue through [Github](https://github.com/Vasistareddy/pythonRLSA) or send an email to vasista.1245@gmail.com with a clear example that can reproduce the issue.
 
 
 
