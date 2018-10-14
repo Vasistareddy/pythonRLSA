@@ -1,0 +1,4 @@
+include LICENSE
+include requirements.txt
+include .gitignore
+recursive-include pythonRLSA/test_images *
