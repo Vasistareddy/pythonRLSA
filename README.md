@@ -12,12 +12,12 @@
 	- pip install -r requirements.txt
 
 # Input & Output
-```
-**Output of 3 cases with value "10" can be seen here**
-```
+
+## Output of 3 cases with value "10" can be seen in the below image
+
 ![Input&Output](https://github.com/Vasistareddy/pythonRLSA/blob/master/pythonRLSA/test_images/image1.png)
 
-[More sample can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
+### [More sample can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
 
 # How it works
 
@@ -36,12 +36,12 @@
 
 # Unittest Results
 ```
-	$ test_bool (__main__.TestRLSA) ... ok
-	$ test_image (__main__.TestRLSA) ... Image must be an numpy ndarray and must be in binary ... ok
-	$ test_rlsa_hori (__main__.TestRLSA) ... ok
-	$ test_rlsa_hori_vert (__main__.TestRLSA) ... ok
-	$ test_rlsa_vert (__main__.TestRLSA) ... ok
-	$ test_value (__main__.TestRLSA) ... ok
+$ test_bool (__main__.TestRLSA) ... ok
+$ test_image (__main__.TestRLSA) ... Image must be an numpy ndarray and must be in binary ... ok
+$ test_rlsa_hori (__main__.TestRLSA) ... ok
+$ test_rlsa_hori_vert (__main__.TestRLSA) ... ok
+$ test_rlsa_vert (__main__.TestRLSA) ... ok
+$ test_value (__main__.TestRLSA) ... ok
 ```
 ----------------------------------------------------------------------
 Ran 6 tests in 0.003s
@@ -67,14 +67,14 @@ OK
 
 # IPython code to convert Image to Binary and RLSA usage
 ```
-	$ # convert the image to binary
-	$ import cv2
-	$ image = cv2.imread('test_images/image.jpg')
-	$ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-	$ (thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-	$ # function call
-	$ from pythonRLSA import rlsa
-	$ image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
+$ # convert the image to binary
+$ import cv2
+$ image = cv2.imread('test_images/image.jpg')
+$ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+$ (thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+$ # function call
+$ from pythonRLSA import rlsa
+$ image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
 ```
 # Bugs/Errors
 
