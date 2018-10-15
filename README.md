@@ -3,19 +3,19 @@
 	- RUN LENGTH SMOOTHING ALGORITHM(RLSA) is a method mainly used for block segmentation and text discrimination.
 	- It mainly uses in Document Image Processing to extract out the ROI(region of interest) like block-of-text/title/content with applied heuristics.
 
-# Install requirements
-
-	- pip install -r requirements.txt
-
 # Install
 
 	- pip install pythonRLSA
 
+# Install requirements
+
+	- pip install -r requirements.txt
+
 # Input & Output
 
-[Output of 3 cases with value "10" can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images/image1.png)
+![Output of 3 cases with value "10" can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images/image1.png)
 
-More results can be seen [here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
+[More sample can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
 
 # How it works
 
@@ -33,14 +33,14 @@ More results can be seen [here](https://github.com/Vasistareddy/pythonRLSA/tree/
 	- python pythonRLSA/test_rlsa_unittest.py -v
 
 # Unittest Results
-
-	- test_bool (__main__.TestRLSA) ... ok
-	- test_image (__main__.TestRLSA) ... Image must be an numpy ndarray and must be in binary ... ok
-	- test_rlsa_hori (__main__.TestRLSA) ... ok
-	- test_rlsa_hori_vert (__main__.TestRLSA) ... ok
-	- test_rlsa_vert (__main__.TestRLSA) ... ok
-	- test_value (__main__.TestRLSA) ... ok
-
+```
+	$ test_bool (__main__.TestRLSA) ... ok
+	$ test_image (__main__.TestRLSA) ... Image must be an numpy ndarray and must be in binary ... ok
+	$ test_rlsa_hori (__main__.TestRLSA) ... ok
+	$ test_rlsa_hori_vert (__main__.TestRLSA) ... ok
+	$ test_rlsa_vert (__main__.TestRLSA) ... ok
+	$ test_value (__main__.TestRLSA) ... ok
+```
 ----------------------------------------------------------------------
 Ran 6 tests in 0.003s
 
@@ -64,16 +64,16 @@ OK
 	- value - any positive integer(int)(required)
 
 # IPython code to convert Image to Binary and RLSA usage
-
-	- # convert the image to binary
-	- import cv2
-	- image = cv2.imread('test_images/image.jpg')
-	- gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-	- (thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-	- # function call
-	- from pythonRLSA import rlsa
-	- image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
-
+```
+	$ # convert the image to binary
+	$ import cv2
+	$ image = cv2.imread('test_images/image.jpg')
+	$ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+	$ (thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+	$ # function call
+	$ from pythonRLSA import rlsa
+	$ image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
+```
 # Bugs/Errors
 
 Please ensure that you have updated pip to the latest version before installing pythonRLSA.
