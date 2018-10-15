@@ -17,7 +17,7 @@
 
 ![Input&Output](https://github.com/Vasistareddy/pythonRLSA/blob/master/pythonRLSA/test_images/image1.png)
 
-### [More sample can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
+### [More sample images can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/test_images)
 
 # How it works
 
