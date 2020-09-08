@@ -1,7 +1,11 @@
-# Project Description
+- RUN LENGTH SMOOTHING ALGORITHM(RLSA) is a method mainly used for block segmentation and text discrimination.
+- It is mainly used in Document Image Processing to extract out the ROI(region of interest) like block-of-text/title/content with applied heuristics.
 
-	- RUN LENGTH SMOOTHING ALGORITHM(RLSA) is a method mainly used for block segmentation and text discrimination.
-	- It mainly uses in Document Image Processing to extract out the ROI(region of interest) like block-of-text/title/content with applied heuristics.
+# Latest Updates
+
+	- now rlsa function accepts single value/tuple with pair of values. (before we need to call the function twice)
+	- a single value be assign to both operations.
+	- a tuple pair of values be assign to horizontal and vertical operations respectively
 
 # Install
 
@@ -10,6 +14,23 @@
 # Install requirements
 
 	- pip install -r requirements.txt
+
+# Function Calls Snippet - Various Combinations
+
+```
+rlsa.rlsa(image_binary, True, True, (10,5)) # passing different values for H and V operations
+rlsa.rlsa(image_binary, True, True, [10,5]) # passing different values for H and V operations
+rlsa.rlsa(image_binary, True, True, (10)) # passing same value but in tuple
+rlsa.rlsa(image_binary, True, True, [10]) # passing same value but in list
+rlsa.rlsa(image_binary, True, True, 10) # passing same value as int
+rlsa.rlsa(image_binary, True, False, 10.0) # passing same value as float
+rlsa.rlsa(image_binary, False, True, 10) # passing same value as int for V operation only
+
+* H - Horizontal 
+* V - Vertical
+
+- At the end of the readme, ipython snippet is attached
+```
 
 # Input & Output
 
@@ -63,18 +84,18 @@ OK
 	- image - numpy.ndarray(required)
 	- horizantal - boolean(required)
 	- vertial - boolean(required)
-	- value - any positive integer(int)(required)
+	- value - any positive integer(int)/list/tuple(required)
 
-# IPython code to convert Image to Binary and RLSA usage
+# IPython snippet to convert Image to Binary and RLSA usage
 ```
-$ # convert the image to binary
-$ import cv2
-$ image = cv2.imread('test_images/image.jpg')
-$ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-$ (thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-$ # function call
-$ from pythonRLSA import rlsa
-$ image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
+# convert the image to binary
+import cv2
+image = cv2.imread('test_images/image.jpg')
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+(thresh, image_binary) = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+# function call
+from pythonRLSA import rlsa
+image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
 ```
 # Bugs/Errors
 

@@ -1,4 +1,5 @@
 import numpy
+from typing import Tuple
 
 def iteration(image: numpy.ndarray, value: int) -> numpy.ndarray:
     """
@@ -21,23 +22,40 @@ def iteration(image: numpy.ndarray, value: int) -> numpy.ndarray:
                 count = col  
     return image 
 
+def valueChecker(value) -> Tuple[int, int]:
+    """
+    This function checks the user provided value and assign it for horizontal and vertical operations
+    """
+    if type(value) in [tuple, list] and len(value) is 2:
+        valueh = value[0]
+        valuev = value[1]
+    elif type(value) in [tuple, list] and len(value) is 1:
+        valueh = value[0]
+        valuev = value[0]
+    elif type(value) is int:
+        valueh = valuev = value
+    elif type(value) is float:
+        valueh = valuev = int(value)
+    valueh = int(valueh) if valueh > 0 else 0 # consecutive pixel position checker value to convert 255 to 0
+    valuev = int(valuev) if valuev > 0 else 0 # consecutive pixel position checker value to convert 255 to 0
+    return valueh, valuev
+
 def rlsa(image: numpy.ndarray, horizontal: bool = True, vertical: bool = True, value: int = 0) -> numpy.ndarray:
     """
-    rlsa(RUN LENGTH SMOOTHING ALGORITHM) is to extract the block-of-text or the Region-of-interest(ROI) from the
+    The method rlsa(RUN LENGTH SMOOTHING ALGORITHM) is to extract the block-of-text or the Region-of-interest(ROI) from the
     document binary Image provided. Must pass binary image of ndarray type.
     """
-    
-    if isinstance(image, numpy.ndarray): # image must be binary of ndarray type
-        value = int(value) if value>=0 else 0 # consecutive pixel position checker value to convert 255 to 0
+    valueh, valuev = valueChecker(value)
+    if isinstance(image, numpy.ndarray): # image must be binary of ndarray type  
         try:
             # RUN LENGTH SMOOTHING ALGORITHM working horizontally on the image
             if horizontal:
-                image = iteration(image, value)   
+                image = iteration(image, valueh)   
 
             # RUN LENGTH SMOOTHING ALGORITHM working vertically on the image
             if vertical:
                 image = image.T
-                image = iteration(image, value)
+                image = iteration(image, valuev)
                 image = image.T
 
         except (AttributeError, ValueError) as e:
