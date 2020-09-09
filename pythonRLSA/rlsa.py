@@ -5,6 +5,10 @@ def iteration(image: numpy.ndarray, value: int) -> numpy.ndarray:
     """
     This method iterates over the provided image by converting 255's to 0's if the number of consecutive 255's are
     less the "value" provided
+
+    Parameter
+    image numpy.ndarray
+    value int
     """
 
     rows, cols = image.shape
@@ -25,6 +29,9 @@ def iteration(image: numpy.ndarray, value: int) -> numpy.ndarray:
 def valueChecker(value) -> Tuple[int, int]:
     """
     This function checks the user provided value and assign it for horizontal and vertical operations
+
+    Parameters
+    value int/tuplePair/listPair
     """
     if type(value) in [tuple, list] and len(value) is 2:
         valueh = value[0]
@@ -36,6 +43,8 @@ def valueChecker(value) -> Tuple[int, int]:
         valueh = valuev = value
     elif type(value) is float:
         valueh = valuev = int(value)
+    else:
+        valueh = valuev = 0
     valueh = int(valueh) if valueh > 0 else 0 # consecutive pixel position checker value to convert 255 to 0
     valuev = int(valuev) if valuev > 0 else 0 # consecutive pixel position checker value to convert 255 to 0
     return valueh, valuev
@@ -44,6 +53,12 @@ def rlsa(image: numpy.ndarray, horizontal: bool = True, vertical: bool = True, v
     """
     The method rlsa(RUN LENGTH SMOOTHING ALGORITHM) is to extract the block-of-text or the Region-of-interest(ROI) from the
     document binary Image provided. Must pass binary image of ndarray type.
+
+    Parameters:
+    image numpy.ndarray
+    horizontal bool
+    vertical bool
+    value int/tuplePair/listPair
     """
     valueh, valuev = valueChecker(value)
     if isinstance(image, numpy.ndarray): # image must be binary of ndarray type  

@@ -1,5 +1,6 @@
 - RUN LENGTH SMOOTHING ALGORITHM(RLSA) is a method mainly used for block segmentation and text discrimination.
 - It is mainly used in Document Image Processing to extract out the ROI(region of interest) like block-of-text/title/content with applied heuristics.
+- Read the application of RLSA here -> [Extract Title from the Image documents in python](https://medium.com/@vasista/extract-title-from-the-image-documents-in-python-application-of-rlsa-58f91237901f)
 
 # Latest Updates
 
@@ -18,6 +19,8 @@
 # Function Calls Snippet - Various Combinations
 
 ```
+from pythonRLSA import rlsa
+
 rlsa.rlsa(image_binary, True, True, (10,5)) # passing different values for H and V operations
 rlsa.rlsa(image_binary, True, True, [10,5]) # passing different values for H and V operations
 rlsa.rlsa(image_binary, True, True, (10)) # passing same value but in tuple
@@ -96,6 +99,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 # function call
 from pythonRLSA import rlsa
 image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
+image_rlsa_horizontal_vertical = rlsa.rlsa(image_binary, True, True, [10,5])
 ```
 # Bugs/Errors
 
