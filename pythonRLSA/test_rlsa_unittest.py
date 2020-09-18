@@ -1,6 +1,7 @@
 import unittest
 import numpy
-from rlsa import rlsa
+from pythonRLSA.rlsa import rlsa
+from pythonRLSA.rlsa_fast import rlsa_fast
 
 value = 2
 Input = [[255, 0, 255, 0, 255], [0, 0, 255, 0, 0], [255, 255, 0, 0, 255]]
@@ -19,18 +20,21 @@ class TestRLSA(unittest.TestCase):
         RLSA horizontal test
         """
         self.assertEqual(rlsa(image.copy(), True, False, value).tolist(), out_h.tolist())
+        self.assertEqual(rlsa_fast(image.copy(), True, False, value).tolist(), out_h.tolist())
 
     def test_rlsa_vert(self):
         """
         RLSA vertical test
         """
         self.assertEqual(rlsa(image.copy(), False, True, value).tolist(), out_v.tolist())
+        self.assertEqual(rlsa_fast(image.copy(), False, True, value).tolist(), out_v.tolist())
 
     def test_rlsa_hori_vert(self):
         """
         RLSA horizontal and vertical test
         """
         self.assertEqual(rlsa(image.copy(), True, True, value).tolist(), out_h_v.tolist())
+        self.assertEqual(rlsa_fast(image.copy(), True, True, value).tolist(), out_h_v.tolist())
 
     def test_bool(self):
         """
@@ -40,6 +44,7 @@ class TestRLSA(unittest.TestCase):
         output == input
         """
         self.assertEqual(rlsa(image.copy(), False, False, value).tolist(), image.copy().tolist())
+        self.assertEqual(rlsa_fast(image.copy(), False, False, value).tolist(), image.copy().tolist())
 
     def test_value(self):
         """
@@ -49,6 +54,7 @@ class TestRLSA(unittest.TestCase):
         output == input
         """
         self.assertEqual(rlsa(image.copy(), True, False, -1).tolist(), image.copy().tolist())
+        self.assertEqual(rlsa_fast(image.copy(), True, False, -1).tolist(), image.copy().tolist())
 
     def test_image(self):
         """
@@ -57,6 +63,9 @@ class TestRLSA(unittest.TestCase):
         when the Input is not ndarray, it throws 'None'
         """
         self.assertEqual(rlsa(list(image), True, False, value), None)
- 
+        self.assertEqual(rlsa_fast(list(image), True, False, value), None)
+     
+    
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main() 
+   
