@@ -91,7 +91,7 @@ output = rlsa_fast(image_binary, False, True, 10)
 **Vertical Smoothing**
 ![V smoothing](Samples/output/pythonRLSA/vertical/input_img_1.jpg)
 
-### [More sample images can be seen here](https://github.com/Vasistareddy/pythonRLSA/tree/master/pythonRLSA/Samples)
+### [More sample images can be seen here](https://github.com/AshishS-1123/pythonRLSA/tree/rlsa_fast_function/Samples)
 
 # How it works
 
