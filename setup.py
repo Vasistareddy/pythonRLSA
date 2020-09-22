@@ -1,9 +1,12 @@
 import setuptools
 import sys
 import os
+import numpy as np
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+
+rlsa_fast_ext = setuptools.Extension("pythonRLSA.rlsa_fast", sources = ["rlsa_fast/rlsa_c_extension.c"], include_dirs = [np.get_include()])
 
 setuptools.setup(
     name="pythonRLSA",
@@ -14,6 +17,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
+    ext_modules = [rlsa_fast_ext],
     install_requires=['numpy'],
     url="https://github.com/Vasistareddy/pythonRLSA",
     download_url='https://github.com/Vasistareddy/pythonRLSA',
