@@ -7,7 +7,8 @@
 	- now rlsa function accepts single value/tuple with pair of values. (before we need to call the function twice)
 	- a single value be assign to both operations.
 	- a tuple pair of values be assign to horizontal and vertical operations respectively
-
+    - the package now implements a rlsa_fast function that can perform Run Length Smoothing in real time.
+    
 # Install
 
 	- pip install pythonRLSA
@@ -17,6 +18,8 @@
 	- pip install -r requirements.txt
 
 # Function Calls Snippet - Various Combinations
+
+### For rlsa function
 
 ```
 from pythonRLSA import rlsa
@@ -33,6 +36,22 @@ rlsa.rlsa(image_binary, False, True, 10) # passing same value as int for V opera
 * V - Vertical
 
 - At the end of the readme, ipython snippet is attached
+```
+
+### For rlsa_fast function
+
+```python
+# Import the rlsa_fast function from the rlsa_fast module
+from pythonRLSA.rlsa_fast import rlsa_fast
+
+# Perform Horizontal and Vertical Smoothing
+H_and_V = rlsa_fast(binary_image, True, True, 10)
+
+# Perform Horizontal Smoothing
+H = rlsa_fast(binary_image, True, False, 10)
+
+# Perform Vertical Smoothing
+V = rlsa_fast(binary_image, False, True, 10)
 ```
 
 # Input & Output
@@ -78,17 +97,29 @@ OK
 	- Image must be a binary ndarray(255's/1's/0's)
 	- Must pass a predefined limit, a certain integer "value"
 
-# Method
+# Methods
 
 	- rlsa
+	- rlsa_fast
 
 # Parameters
+
+### For rlsa
 
 	- image - numpy.ndarray(required)
 	- horizantal - boolean(required)
 	- vertial - boolean(required)
 	- value - any positive integer(int)/list/tuple(required)
 
+### For rlsa_fast
+
+	- image - numpy.ndarray(required)
+	- horizontal - boolean(required)
+	- vertical - boolean(required)
+	- value - any positive integer(required)
+    
+**rlsa_fast function does not modify the input image, but returns a new numpy array containing  the smoothened image.**
+    
 # IPython snippet to convert Image to Binary and RLSA usage
 ```
 # convert the image to binary
@@ -101,6 +132,18 @@ from pythonRLSA import rlsa
 image_rlsa_horizontal = rlsa.rlsa(image_binary, True, False, 10)
 image_rlsa_horizontal_vertical = rlsa.rlsa(image_binary, True, True, [10,5])
 ```
+
+# For Non-Programmers
+
+This repo contains a folder **demo**. To get the Run Length Smoothed image without writing a line of code, follow the following steps.
+
+1. Install OpenCV and NumPy.
+2. Install pythonRLSA.
+3. Clone this repo or download the source as zip.
+4. Place the images on whom you want to apply RLSA in the *demo/in* folder in the repo.
+5. Run the **rlsa_demo.py** file.
+6. The Horizontal, Vertical, Both and None smoothened images will appear in the *output* folder.
+
 # Bugs/Errors
 
 Please ensure that you have updated pip to the latest version before installing pythonRLSA.
