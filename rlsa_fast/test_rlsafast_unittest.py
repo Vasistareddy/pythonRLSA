@@ -1,6 +1,6 @@
 import unittest
 import numpy
-from rlsa.rlsa_fast import rlsa_fast
+from pythonRLSA.rlsa_fast import rlsa_fast
 
 value = 2
 Input = [[255, 0, 255, 0, 255], [0, 0, 255, 0, 0], [255, 255, 0, 0, 255]]
