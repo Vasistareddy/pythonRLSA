@@ -7,10 +7,15 @@
 	- now rlsa function accepts single value/tuple with pair of values. (before we need to call the function twice)
 	- a single value be assign to both operations.
 	- a tuple pair of values be assign to horizontal and vertical operations respectively
+	- package has a method rlsa_fast that can perform Run Length Smoothing in real time for operations where time is a constraint
 
 # Install
 
 	- pip install pythonRLSA
+
+# Install from Source
+
+    - python setup.py install
 
 # Install requirements
 
@@ -29,11 +34,23 @@ rlsa.rlsa(image_binary, True, True, 10) # passing same value as int
 rlsa.rlsa(image_binary, True, False, 10.0) # passing same value as float
 rlsa.rlsa(image_binary, False, True, 10) # passing same value as int for V operation only
 
-* H - Horizontal 
+* H - Horizontal
 * V - Vertical
 
 - At the end of the readme, ipython snippet is attached
 ```
+
+```python
+from pythonRLSA.rlsa_fast import rlsa_fast
+
+H_V = rlsa_fast(image_binary, True, True, 10) # performing Horizontal and Vertical operations
+H = rlsa_fast(image_binary, True, False, 10) # performing Horizontal operation
+V = rlsa_fast(image_binary, False, True, 10) # performing Vertical operation
+
+
+```
+
+
 
 # Input & Output
 
@@ -57,6 +74,7 @@ rlsa.rlsa(image_binary, False, True, 10) # passing same value as int for V opera
 # To test
 
 	- python pythonRLSA/test_rlsa_unittest.py -v
+	- python rlsa_fast/test_rlsafast_unittest.py -v
 
 # Unittest Results
 ```
@@ -73,7 +91,7 @@ Ran 6 tests in 0.003s
 OK
 
 # Prerequisites
-	
+
 	- python3.5+
 	- Image must be a binary ndarray(255's/1's/0's)
 	- Must pass a predefined limit, a certain integer "value"
@@ -81,6 +99,7 @@ OK
 # Method
 
 	- rlsa
+	- rlsa_fast
 
 # Parameters
 
@@ -106,8 +125,3 @@ image_rlsa_horizontal_vertical = rlsa.rlsa(image_binary, True, True, [10,5])
 Please ensure that you have updated pip to the latest version before installing pythonRLSA.
 
 If you find any bugs/errors in the usage of above code, please raise an issue through [Github](https://github.com/Vasistareddy/pythonRLSA) or send an email to vasista.1245@gmail.com with a clear example that can reproduce the issue.
-
-
-
-
-
